@@ -1,0 +1,25 @@
+common:
+  msg_source: 1                    # 0: not use Lidar
+                                   # 1: packet message comes from online Lidar
+                                   # 2: packet message comes from ROS or ROS2
+                                   # 3: packet message comes from Pcap file
+  send_packet_ros: false           # true: Send packets through ROS or ROS2(Used to record packet)
+  send_point_cloud_ros: true       # true: Send point cloud through ROS or ROS2
+lidar:
+  - driver:
+      lidar_type: A0               # LiDAR type - A0, A2
+      msop_port:  51180            # Msop port of lidar
+      difop_port: 7788             # Difop port of lidar
+      wait_for_difop: false        # Wait for difop packet
+      dense_points: false          # dense point clouds
+      min_distance: 0.0            # Minimum distance of point cloud
+      max_distance: 200            # Maximum distance of point cloud
+      use_lidar_clock: false       # True--Use the lidar clock as the message timestamp
+                                   # False-- Use the system clock as the timestamp
+      write_pkt_ts: false          # rewrite pkt timestamp or not; (prerequisite:use_lidar_clock must be false)
+      pcap_path: /opt/data/A0-test.pcap # The path of pcap file
+    ros:
+      ros_frame_id: aglidar                            # Frame id of packet message and point cloud message
+      ros_recv_packet_topic: /aglidar_packets          # Topic used to receive lidar packets from ROS
+      ros_send_packet_topic: /aglidar_packets          # Topic used to send lidar packets through ROS
+      ros_send_point_cloud_topic: /aglidar_points      # Topic used to send point cloud through ROS

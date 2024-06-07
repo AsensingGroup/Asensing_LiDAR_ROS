@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>aglidar_sdk</name>
+  <version>1.0.0</version>
+  <description>ROS1 Drivers for the Asensing LiDAR sensor</description>
+  <maintainer email="luhuadong@asensing.com">Huadong Lu</maintainer>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>roslib</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>roslib</run_depend>
+</package>
